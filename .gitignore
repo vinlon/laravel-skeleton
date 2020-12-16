@@ -27,3 +27,7 @@ scratch.php
 
 # MAC OS
 .DS_Store
+
+# Other
+cghooks.lock
+

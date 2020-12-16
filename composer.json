@@ -16,6 +16,7 @@
     "laravel/tinker": "^2.5"
   },
   "require-dev": {
+    "brainmaestro/composer-git-hooks": "^2.8",
     "facade/ignition": "^2.0",
     "fakerphp/faker": "^1.9.1",
     "friendsofphp/php-cs-fixer": "^2.17",
@@ -49,6 +50,16 @@
   },
   "minimum-stability": "dev",
   "prefer-stable": true,
+  "extra": {
+    "hooks": {
+      "pre-commit": [
+        "composer check-style"
+      ],
+      "pre-push": [
+        "composer check-style"
+      ]
+    }
+  },
   "scripts": {
     "post-autoload-dump": [
       "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
@@ -58,12 +69,20 @@
       "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
       "@php -r \"file_exists('scratch.php') || copy('_scratch.php', 'scratch.php');\""
     ],
-    "post-install-cmd": [
-      "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
-      "@php -r \"file_exists('scratch.php') || copy('_scratch.php', 'scratch.php');\""
-    ],
     "post-create-project-cmd": [
       "@php artisan key:generate --ansi"
-    ]
+    ],
+    "post-install-cmd": [
+      "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
+      "@php -r \"file_exists('scratch.php') || copy('_scratch.php', 'scratch.php');\"",
+      "cghooks add --ignore-lock",
+      "cghooks update"
+    ],
+    "post-update-cmd": [
+      "cghooks update"
+    ],
+    "cghooks": "vendor/bin/cghooks",
+    "check-style": "vendor/bin/php-cs-fixer fix --using-cache=no --diff --dry-run --ansi",
+    "fix-style": "vendor/bin/php-cs-fixer fix --using-cache=no --diff --ansi"
   }
 }

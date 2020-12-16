@@ -4,13 +4,14 @@
 
 在 [laravel/laravel](https://github.com/laravel/laravel/tree/7.x) 的基础上增加以下功能
 
-- 增加 DB_PREFIX 环境变量
-- 引入 SQL-LOGGER
-- 引入 IDE-HELPER 并调整配置
-- 配置 PHP-CS-FIXER
-- 简化 .env.example（只保留必要的项）, 执行 composer install 后创建 .env 文件（如果.env文件不存在）
-- 增加 scratch.php 文件
-
+- [x] 增加 DB_PREFIX 环境变量
+- [ ] 引入 sql-logger
+- [ ] 引入 ide-helper 并调整配置
+- [x] 配置 php-cs-fixer
+- [x] 简化 .env.example（只保留必要的项）, 执行 composer install 后创建 .env 文件（如果.env文件不存在）
+- [x] 增加 scratch.php 文件
+- [ ] Eloquent Model Date Serialization
+- [ ] composer-git-hooks
 
 ## 使用 
 
