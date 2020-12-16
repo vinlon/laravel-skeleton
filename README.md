@@ -11,14 +11,14 @@
 - [x] 简化 .env.example（只保留必要的项）, 执行 composer install 后创建 .env 文件（如果.env文件不存在）
 - [x] 增加 scratch.php 文件
 - [ ] Eloquent Model Date Serialization
-- [ ] composer-git-hooks
+- [x] composer-git-hooks
 
 ## 使用 
 
 ### 使用composer create-project 创建项目
 
 ```shell script
-composer create-project --prefer-dist laravel/laravel:^7.0 blog
+composer create-project --prefer-dist vinlon/laravel {project-name}
 ```
 
 
