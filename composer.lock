@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6ee27886b0509a32f89044b2f83412de",
+    "content-hash": "0f0e3a3f3ca0618512c2a80520532936",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -4945,6 +4945,65 @@
                 "source": "https://github.com/tijsverkoyen/CssToInlineStyles/tree/2.2.3"
             },
             "time": "2020-07-13T06:12:54+00:00"
+        },
+        {
+            "name": "vinlon/laravel-sql-logger",
+            "version": "0.1.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/vinlon/laravel-sql-logger.git",
+                "reference": "2c409ce0628b5ffde0668b5d66ca4fe77204d2ce"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/vinlon/laravel-sql-logger/zipball/2c409ce0628b5ffde0668b5d66ca4fe77204d2ce",
+                "reference": "2c409ce0628b5ffde0668b5d66ca4fe77204d2ce",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "laravel/framework": "~6.0||~7.0"
+            },
+            "require-dev": {
+                "brainmaestro/composer-git-hooks": "^2.8",
+                "friendsofphp/php-cs-fixer": "^2.17"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Vinlon\\Laravel\\SqlLogger\\SqlLoggerProvider"
+                    ]
+                },
+                "hooks": {
+                    "pre-push": [
+                        "composer check-style"
+                    ],
+                    "pre-commit": [
+                        "composer check-style"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Vinlon\\Laravel\\SqlLogger\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Log Sql Queries in Laravel framework",
+            "support": {
+                "issues": "https://github.com/vinlon/laravel-sql-logger/issues",
+                "source": "https://github.com/vinlon/laravel-sql-logger/tree/0.1.6"
+            },
+            "time": "2020-12-16T09:14:56+00:00"
         },
         {
             "name": "vlucas/phpdotenv",

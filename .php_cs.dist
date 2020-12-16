@@ -14,6 +14,7 @@ $finder = PhpCsFixer\Finder::create()
 $rules = [
     '@PhpCsFixer' => true,
     'concat_space' => ['spacing' => 'one'],
+    'single_line_comment_style' => false,
 ];
 
 $config = new \PhpCsFixer\Config();

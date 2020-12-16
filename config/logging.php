@@ -1,8 +1,6 @@
 <?php
 
 use Monolog\Handler\NullHandler;
-use Monolog\Handler\StreamHandler;
-use Monolog\Handler\SyslogUdpHandler;
 
 return [
     /*
@@ -36,7 +34,7 @@ return [
     'channels' => [
         'stack' => [
             'driver' => 'stack',
-            'channels' => ['single'],
+            'channels' => ['daily'],
             'ignore_exceptions' => false,
         ],
 
@@ -48,36 +46,21 @@ return [
 
         'daily' => [
             'driver' => 'daily',
-            'path' => storage_path('logs/laravel.log'),
+            'path' => storage_path('logs/default.log'),
             'level' => 'debug',
             'days' => 14,
         ],
-
-        'slack' => [
-            'driver' => 'slack',
-            'url' => env('LOG_SLACK_WEBHOOK_URL'),
-            'username' => 'Laravel Log',
-            'emoji' => ':boom:',
-            'level' => 'critical',
-        ],
-
-        'papertrail' => [
-            'driver' => 'monolog',
+        'sql-logger' => [
+            'driver' => 'daily',
+            'path' => storage_path('logs/sql.log'),
             'level' => 'debug',
-            'handler' => SyslogUdpHandler::class,
-            'handler_with' => [
-                'host' => env('PAPERTRAIL_URL'),
-                'port' => env('PAPERTRAIL_PORT'),
-            ],
+            'days' => 14,
         ],
-
-        'stderr' => [
-            'driver' => 'monolog',
-            'handler' => StreamHandler::class,
-            'formatter' => env('LOG_STDERR_FORMATTER'),
-            'with' => [
-                'stream' => 'php://stderr',
-            ],
+        'slow-sql-logger' => [
+            'driver' => 'daily',
+            'path' => storage_path('logs/slow-sql.log'),
+            'level' => 'debug',
+            'days' => 14,
         ],
 
         'syslog' => [
@@ -96,7 +79,7 @@ return [
         ],
 
         'emergency' => [
-            'path' => storage_path('logs/laravel.log'),
+            'path' => storage_path('logs/emergency.log'),
         ],
     ],
 ];
