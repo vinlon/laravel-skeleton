@@ -18,7 +18,7 @@
 ### 使用composer create-project 创建项目
 
 ```shell script
-composer create-project --prefer-dist vinlon/laravel {project-name}
+composer create-project --prefer-dist vinlon/laravel-skeleton {:project-name}
 ```
 
 ### 日期格式
