@@ -24,3 +24,6 @@ yarn-error.log
 
 # scratch.php
 scratch.php
+
+# MAC OS
+.DS_Store

@@ -3,7 +3,9 @@
 $finder = PhpCsFixer\Finder::create()
     ->files()
     ->name('*.php')
-    ->exclude('vendor') //排除vendor目录
+    ->exclude('vendor') //排除 vendor 目录
+    ->exclude('storage') //排除 storage 目录
+    ->notPath('_ide_helper_models.php') //排除ide-helper文件
     ->in(__DIR__)
     ->ignoreDotFiles(true)
     ->ignoreVCS(true);
