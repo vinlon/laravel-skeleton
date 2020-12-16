@@ -1,8 +1,8 @@
-# Laravel Skelton 应用开发基础模板
+# Laravel Skeleton 应用开发基础模板
 
-Based On: https://github.com/laravel/laravel/tree/7.x
+## 功能
 
-## 功能：
+在 [laravel/laravel](https://github.com/laravel/laravel/tree/7.x) 的基础上增加以下功能
 
 - 增加 DB_PREFIX 环境变量
 - 引入 SQL-LOGGER
