@@ -83,6 +83,7 @@
     ],
     "cghooks": "vendor/bin/cghooks",
     "check-style": "vendor/bin/php-cs-fixer fix --using-cache=no --diff --dry-run --ansi",
-    "fix-style": "vendor/bin/php-cs-fixer fix --using-cache=no --ansi"
+    "fix-style": "vendor/bin/php-cs-fixer fix --using-cache=no --ansi",
+    "ide-helper": "php artisan ide-helper:model -M"
   }
 }
