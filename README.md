@@ -10,8 +10,9 @@
 - [x] 配置 php-cs-fixer
 - [x] 简化 .env.example（只保留必要的项）, 执行 composer install 后创建 .env 文件（如果.env文件不存在）
 - [x] 增加 scratch.php 文件，用于快速启动laravel并执行一段代码逻辑
-- [ ] Eloquent Model Date Serialization
+- [x] Eloquent Model Date Serialization
 - [x] composer-git-hooks
+- [x] 移除自带的 User Model
 
 ## 使用 
 
@@ -20,6 +21,30 @@
 ```shell script
 composer create-project --prefer-dist vinlon/laravel {project-name}
 ```
+
+### 日期格式
+
+从 laravel 7 开始，调用 Eloquent Model 的 toArray方法，日期字段的输出格式为 `2020-12-10T09:28:59.000000Z`
+
+可通过在 Model 中 `use SerializeDateTrait;`
+
+```php
+class User extends Model
+{
+    use SerializeDateTrait;
+}
+```
+
+或 extend BaseModel
+
+```php
+class User extends BaseModel
+{
+}
+```
+
+将日期输出格式修改为 `2020-12-10 09:28:59`
+
 
 ### 代码格式化
 
