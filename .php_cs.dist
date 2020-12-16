@@ -12,6 +12,7 @@ $finder = PhpCsFixer\Finder::create()
 
 $rules = [
     '@PhpCsFixer' => true,
+    'concat_space' => ['spacing' => 'one'],
 ];
 
 $config = new \PhpCsFixer\Config();

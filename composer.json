@@ -1,5 +1,5 @@
 {
-  "name": "laravel/laravel",
+  "name": "vinlon/laravel-skeleton",
   "type": "project",
   "description": "The Laravel Framework.",
   "keywords": [
@@ -55,10 +55,12 @@
       "@php artisan package:discover --ansi"
     ],
     "post-root-package-install": [
-      "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+      "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
+      "@php -r \"file_exists('scratch.php') || copy('_scratch.php', 'scratch.php');\""
     ],
     "post-install-cmd": [
-      "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+      "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
+      "@php -r \"file_exists('scratch.php') || copy('_scratch.php', 'scratch.php');\""
     ],
     "post-create-project-cmd": [
       "@php artisan key:generate --ansi"
