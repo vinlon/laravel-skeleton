@@ -6,9 +6,9 @@ Based On: https://github.com/laravel/laravel/tree/7.x
 
 - 增加 DB_PREFIX 环境变量
 - 引入 SQL-LOGGER
-- 引入 IDE-HELPER并调整配置
-- 配置PHP-CS-FIXER
-- .env.example 简化 （只保留必要的项）
+- 引入 IDE-HELPER 并调整配置
+- 配置 PHP-CS-FIXER
+- 简化 .env.example（只保留必要的项）, 执行 composer install 后创建 .env 文件（如果.env文件不存在）
 - 增加 scratch.php 文件
 
 
@@ -19,7 +19,6 @@ Based On: https://github.com/laravel/laravel/tree/7.x
 ```shell script
 composer create-project --prefer-dist laravel/laravel:^7.0 blog
 ```
-
 
 
 ## 参考
