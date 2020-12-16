@@ -50,8 +50,11 @@
       "dont-discover": []
     },
     "hooks": {
+      "pre-push": [
+        "composer check-style"
+      ],
       "pre-commit": [
-        "composer fix-style"
+        "./fix-staged-php-files.sh"
       ]
     }
   },
