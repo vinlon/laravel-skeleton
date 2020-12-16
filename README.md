@@ -5,7 +5,7 @@
 在 [laravel/laravel:7.x](https://github.com/laravel/laravel/tree/7.x) 的基础上增加以下功能
 
 - [x] 增加 DB_PREFIX 环境变量
-- [x] 引入 sql-logger
+- [x] 引入 sql-logger, 并配置专用的 log channel
 - [ ] 引入 ide-helper 并调整配置
 - [x] 配置 php-cs-fixer
 - [x] 简化 .env.example（只保留必要的项）, 执行 composer install 后创建 .env 文件（如果.env文件不存在）
