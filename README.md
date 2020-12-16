@@ -7,11 +7,10 @@
 - [x] 增加 DB_PREFIX 环境变量
 - [x] 引入 sql-logger, 并配置专用的 log channel
 - [x] 引入 ide-helper 并调整配置
-- [x] 配置 php-cs-fixer
+- [x] 配置 php-cs-fixer 和 composer-git-hooks
 - [x] 简化 .env.example（只保留必要的项）, 执行 composer install 后创建 .env 文件（如果.env文件不存在）
-- [x] 增加 scratch.php 文件，用于快速启动laravel并执行一段代码逻辑
+- [x] 增加 scratch.php 文件，用于快速启动 laravel 并执行一段代码
 - [x] Eloquent Model Date Serialization
-- [x] composer-git-hooks
 - [x] 移除自带的 User Model
 
 ## 使用 
@@ -45,6 +44,22 @@ class User extends BaseModel
 
 将日期输出格式修改为 `2020-12-10 09:28:59`
 
+
+### IDE-Helper
+
+目前只用到了 ide-helper-models, 使用 @mixin 方式，对 Model 类的影响最小，将变化集中到 _ide_helper_models.php 文件中
+
+可使用如下命令生成 _ide_helper_models.php 文件
+
+```shell script
+php artisan ide-helper:models -M
+```
+
+或者使用 composer 命令
+
+```shell script
+composer ide-helper
+```
 
 ### 代码格式化
 
