@@ -57,7 +57,7 @@
         "composer check-style"
       ],
       "pre-commit": [
-        "./fix-staged-php-files.sh"
+        "scripts/fix-staged-php-files"
       ]
     }
   },
@@ -66,16 +66,13 @@
       "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
       "@php artisan package:discover --ansi"
     ],
-    "post-root-package-install": [
-      "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
-      "@php -r \"file_exists('scratch.php') || copy('_scratch.php', 'scratch.php');\""
-    ],
     "post-create-project-cmd": [
       "@php artisan key:generate --ansi"
     ],
     "post-install-cmd": [
       "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
       "@php -r \"file_exists('scratch.php') || copy('_scratch.php', 'scratch.php');\"",
+      "git init",
       "cghooks add --ignore-lock",
       "cghooks update"
     ],
