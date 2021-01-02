@@ -10,6 +10,7 @@
   "license": "MIT",
   "require": {
     "php": "^7.2.5|^8.0",
+    "bensampo/laravel-enum": "^2.2",
     "fideloper/proxy": "^4.4",
     "fruitcake/laravel-cors": "^2.0",
     "guzzlehttp/guzzle": "^6.3.1|^7.0.1",
@@ -82,12 +83,15 @@
     "cghooks": "vendor/bin/cghooks",
     "check-style": "vendor/bin/php-cs-fixer fix --using-cache=no --diff --dry-run --ansi",
     "fix-style": "vendor/bin/php-cs-fixer fix --using-cache=no --ansi",
-    "ide-helper": "php artisan ide-helper:model -M"
+    "ide-helper": [
+        "php artisan ide-helper:model -M",
+        "php artisan enum:annotate"
+    ]
   },
   "repositories": {
     "packagist": {
       "type": "composer",
       "url": "https://mirrors.aliyun.com/composer/"
     }
-  }  
+  }
 }

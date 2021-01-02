@@ -10,7 +10,7 @@
 - [x] 配置 php-cs-fixer 和 composer-git-hooks
 - [x] 简化 .env.example（只保留必要的项）, 执行 composer install 后创建 .env 文件（如果.env文件不存在）
 - [x] 增加 scratch.php 文件，用于快速启动 laravel 并执行一段代码
-- [x] Eloquent Model Date Serialization
+- [x] 定义 BaseModel , 继承后自动实现日期序列化和fillable字段定义
 - [x] 移除自带的 User Model
 - [x] composer 使用阿里云的镜像源
 
@@ -82,6 +82,24 @@ composer fix-style
 2. pre-push: 在 push 代码前会检查所有 php 文件，如果有需要格式化的文件则 push 失败，
 此时需要手动执行 composer fix-style, 然后 commit 格式化后的代码，再重新 push。
 
+### Enum的使用
+
+#### 常用功能
+[创建Enum类](https://github.com/BenSampo/laravel-enum#enum-definition)  
+[Eloquent Model 属性转换](https://github.com/BenSampo/laravel-enum#attribute-casting)  
+[自定义 $model->toArray() 的行为](https://github.com/BenSampo/laravel-enum#customising-model-toarray-behaviour)  
+[数据验证](https://github.com/BenSampo/laravel-enum#pipe-validation)  
+[定义 description 属性](https://github.com/BenSampo/laravel-enum#enum-descriptions)  
+[常用静态方法](https://github.com/BenSampo/laravel-enum#enum-class-reference)  
+
+#### 生成注解  
+```shell script
+# 使用 artisan 命令为 enum 类生成注解 
+php artisan enum:annotate
+
+# 使用 composer 自定义命令同时为 model 类和 enum 类生成注解
+composer ide-helper
+```
 
 ## 参考
 https://github.com/overtrue/laravel-skeleton
