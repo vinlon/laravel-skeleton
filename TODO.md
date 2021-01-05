@@ -1,9 +1,7 @@
 # TODOs
-- [x] BaseModel 改为 Abstract Class  
-- [x] BaseModel 设置除id外的其它字段为 fillable 
-- [x] Enum 使用
-	- AvailableStatus 
-	- composer ide-helper
-	- enums.php
-- [ ] composer加速
+
+- [ ] 项目初始化脚本
+	修改项目名称和描述
+	删除README.md
+	删除TODO.md
 

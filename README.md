@@ -11,7 +11,6 @@
 - [x] 简化 .env.example（只保留必要的项）, 执行 composer install 后创建 .env 文件（如果.env文件不存在）
 - [x] 增加 scratch.php 文件，用于快速启动 laravel 并执行一段代码
 - [x] 定义 BaseModel , 继承后自动实现日期序列化和fillable字段定义
-- [x] 移除自带的 User Model
 - [x] composer 使用阿里云的镜像源
 
 ## 使用 
