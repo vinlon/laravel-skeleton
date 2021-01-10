@@ -17,7 +17,7 @@
 
 ### 使用composer create-project 创建项目
 
-```shell script
+```shell
 composer create-project --prefer-dist vinlon/laravel-skeleton {:project-name}
 ```
 
@@ -51,13 +51,13 @@ class User extends BaseModel
 
 可使用如下命令生成 _ide_helper_models.php 文件
 
-```shell script
+```shell
 php artisan ide-helper:models -M
 ```
 
 或者使用 composer 命令
 
-```shell script
+```shell
 composer ide-helper
 ```
 
@@ -65,7 +65,7 @@ composer ide-helper
 
 #### 手动执行
 
-```shell script
+```shell
 # 检查需要格式化的内容，但不执行
 composer check-style
 
@@ -92,7 +92,7 @@ composer fix-style
 [常用静态方法](https://github.com/BenSampo/laravel-enum#enum-class-reference)  
 
 #### 生成注解  
-```shell script
+```shell
 # 使用 artisan 命令为 enum 类生成注解 
 php artisan enum:annotate
 
