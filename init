@@ -1,0 +1,113 @@
+#!/usr/bin/env php
+<?php
+
+info('# 项目初始化');
+warn('注意:此脚本在通过composer create project创建项目后第一时间执行，如果在执行脚本前已经对部分文件进行了修改，执行时一定要注意不要覆盖已修改的内容');
+//=============== 第一步 ==================
+info('## 第一步：删除laravel-skeleton项目需要，但在当前应用中不需要的文件');
+writeln('>> 接下来将删除如下文件: ');
+$filesToDelete = [
+    path('_scratch.php'),
+    path('TODO.md'),
+    path('LICENSE.md'),
+];
+foreach ($filesToDelete as $filePath) {
+    writeln('- ' . $filePath);
+}
+warn('确认是否删除? [y/N]');
+$confirmation = trim(fgets(STDIN));
+if ('y' !== $confirmation) {
+    error('文件删除未执行');
+} else {
+    foreach ($filesToDelete as $filePath) {
+        if (file_exists($filePath)) {
+            success("deleting {$filePath}");
+            unlink($filePath);
+        } else {
+            warn("文件未找到 {$filePath}");
+        }
+    }
+}
+//=============== 第二步 ===================
+info('## 第二步：根据项目名称修改相关文件');
+$folderName = basename(__DIR__);
+info("请输入项目英文名称(直接回车则使用当前目录名称作为项目名称): {$folderName}");
+$projectName = trim(fgets(STDIN));
+if (empty($projectName)) {
+    $projectName = $folderName;
+}
+success('项目名称为:' . $projectName);
+writeln('>> 修改README文件：将README文件清空，只保留项目名称作为一级标题');
+warn('确认是否修改? [y/N]');
+$confirmation = trim(fgets(STDIN));
+if ('y' !== $confirmation) {
+    error('README文件未修改');
+} else {
+    file_put_contents(path('README.md'), '#' . strtoupper($projectName));
+    success('README文件修改完成');
+}
+
+writeln('>> 修改环境变量: 将.env和.env.example中的APP_NAME修改为项目名称');
+warn('确认是否修改？[y/N]');
+
+$confirmation = trim(fgets(STDIN));
+if ('y' !== $confirmation) {
+    error('env文件未修改');
+} else {
+    foreach (['.env', '.env.example'] as $file) {
+        $env = file_get_contents(path($file));
+        $newEnv = str_replace('APP_NAME=Laravel', "APP_NAME={$projectName}", $env);
+        file_put_contents(path($file), $newEnv);
+        success("{$file}文件修改完成");
+    }
+}
+writeln('>> 对composer.json文件做如下修改');
+writeln('- name和description修改为项目名称');
+writeln('- 去掉keywords, license和scripts.post-create-project-cmd配置');
+warn('确认是否修改？[y/N]');
+$confirmation = trim(fgets(STDIN));
+if ('y' !== $confirmation) {
+    error('composer.json 文件未修改');
+} else {
+    $composerJson = file_get_contents(path('composer.json'));
+    $composerArr = json_decode((string) $composerJson, true);
+    $composerArr['name'] = $projectName;
+    $composerArr['description'] = $projectName;
+    unset($composerArr['keywords'], $composerArr['license'], $composerArr['scripts']['post-create-project-cmd']);
+    $newJson = json_encode($composerArr, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
+    file_put_contents(path('composer.json'), $newJson);
+    success('composer.json文件修改成功');
+}
+
+success('项目初始化完成');
+warn('所有操作确认无误后，请手动删除项目根目录下的 init 文件');
+
+function path($file)
+{
+    return __DIR__ . '/' . $file;
+}
+
+function info($msg)
+{
+    writeln("\e[34m{$msg}\e[39m");
+}
+
+function success($msg)
+{
+    writeln("\e[36m{$msg}\e[39m");
+}
+
+function error($msg)
+{
+    writeln("\e[31m{$msg}\e[39m");
+}
+
+function warn($msg)
+{
+    writeln("\e[33m{$msg}\e[39m");
+}
+
+function writeln($msg = '')
+{
+    echo $msg . PHP_EOL;
+}

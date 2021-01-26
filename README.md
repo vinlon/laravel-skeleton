@@ -21,6 +21,9 @@
 composer create-project --prefer-dist vinlon/laravel-skeleton {:project-name}
 ```
 
+执行 `php init`, 然后按提示进行操作，对项目进行初始化
+
+
 ### 日期格式
 
 从 laravel 7 开始，调用 Eloquent Model 的 toArray方法，日期字段的输出格式为 `2020-12-10T09:28:59.000000Z`
