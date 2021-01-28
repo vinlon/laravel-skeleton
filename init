@@ -72,7 +72,7 @@ if ('y' !== $confirmation) {
 } else {
     $composerJson = file_get_contents(path('composer.json'));
     $composerArr = json_decode((string) $composerJson, true);
-    $composerArr['name'] = $projectName;
+    $composerArr['name'] = 'fox/' . $projectName;
     $composerArr['description'] = $projectName;
     $composerArr['scripts']['post-install-cmd'][] = 'cghooks add --ignore-lock';
     $composerArr['scripts']['post-install-cmd'][] = 'cghooks update';
