@@ -43,7 +43,7 @@ $confirmation = trim(fgets(STDIN));
 if ('y' !== $confirmation) {
     error('README文件未修改');
 } else {
-    file_put_contents(path('README.md'), '#' . strtoupper($projectName));
+    file_put_contents(path('README.md'), '# ' . strtoupper($projectName));
     success('README文件修改完成');
 }
 
@@ -63,6 +63,7 @@ if ('y' !== $confirmation) {
 }
 writeln('>> 对composer.json文件做如下修改');
 writeln('- name和description修改为项目名称');
+writeln('- scripts.post-install-cmd 增加 cghooks add --ignore-lock 和 cghooks update');
 writeln('- 去掉keywords, license和scripts.post-create-project-cmd配置');
 warn('确认是否修改？[y/N]');
 $confirmation = trim(fgets(STDIN));
@@ -73,7 +74,13 @@ if ('y' !== $confirmation) {
     $composerArr = json_decode((string) $composerJson, true);
     $composerArr['name'] = $projectName;
     $composerArr['description'] = $projectName;
-    unset($composerArr['keywords'], $composerArr['license'], $composerArr['scripts']['post-create-project-cmd']);
+    $composerArr['scripts']['post-install-cmd'][] = 'cghooks add --ignore-lock';
+    $composerArr['scripts']['post-install-cmd'][] = 'cghooks update';
+    unset(
+        $composerArr['keywords'],
+        $composerArr['license'],
+        $composerArr['scripts']['post-create-project-cmd']
+    );
     $newJson = json_encode($composerArr, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
     file_put_contents(path('composer.json'), $newJson);
     success('composer.json文件修改成功');

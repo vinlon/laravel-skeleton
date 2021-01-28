@@ -72,10 +72,7 @@
     ],
     "post-install-cmd": [
       "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
-      "@php -r \"file_exists('scratch.php') || copy('_scratch.php', 'scratch.php');\"",
-      "git init",
-      "cghooks add --ignore-lock",
-      "cghooks update"
+      "@php -r \"file_exists('scratch.php') || copy('_scratch.php', 'scratch.php');\""
     ],
     "post-update-cmd": [
       "cghooks update"
