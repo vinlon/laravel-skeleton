@@ -1,5 +1,9 @@
 # Laravel Skeleton 应用开发基础模板
 
+## 更新日志
+
+v0.1.9: 自定义 make:model 和 make:enum 命令使用的 stub 模板，适量减少重复性的工作
+
 ## 功能
 
 在 [laravel/laravel:7.x](https://github.com/laravel/laravel/tree/7.x) 的基础上增加以下功能
@@ -10,7 +14,8 @@
 - [x] 配置 php-cs-fixer 和 composer-git-hooks
 - [x] 简化 .env.example（只保留必要的项）, 执行 composer install 后创建 .env 文件（如果.env文件不存在）
 - [x] 增加 scratch.php 文件，用于快速启动 laravel 并执行一段代码
-- [x] 定义 BaseModel , 继承后自动实现日期序列化和fillable字段定义
+- [x] 定义 BaseModel , 继承后自动实现日期序列化和fillable字段定义，并自定义 make:model 模板，默认继承BaseModel
+- [x] 集成 bensampo/laravel-enum，并自定义 make:enum 模板，默认继承 LocalizedEnum 接口，并重写 toArray 方法
 - [x] composer 使用阿里云的镜像源
 
 ## 使用 
