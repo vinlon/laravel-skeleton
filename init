@@ -7,7 +7,6 @@ warn('注意:此脚本在通过composer create project创建项目后第一时�
 info('## 第一步：删除laravel-skeleton项目需要，但在当前应用中不需要的文件');
 writeln('>> 接下来将删除如下文件: ');
 $filesToDelete = [
-    path('_scratch.php'),
     path('TODO.md'),
     path('LICENSE.md'),
 ];
