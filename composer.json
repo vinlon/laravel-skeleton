@@ -73,10 +73,6 @@
     "post-create-project-cmd": [
       "@php artisan key:generate --ansi"
     ],
-    "post-install-cmd": [
-      "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
-      "@php -r \"file_exists('scratch.php') || copy('_scratch.php', 'scratch.php');\""
-    ],
     "post-update-cmd": [
       "cghooks update"
     ],
