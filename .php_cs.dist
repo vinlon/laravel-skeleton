@@ -7,6 +7,7 @@ $finder = PhpCsFixer\Finder::create()
     ->exclude('storage') //排除 storage 目录
     ->exclude('bootstrap') //排除 bootstrap 目录
     ->notPath('_ide_helper_models.php') //排除 ide-helper 文件
+    ->notPath('_ide_helper.php') //排除 ide-helper 文件
     ->notPath('scratch.php') //排除 scratch.php 文件
     ->in(__DIR__)
     ->ignoreDotFiles(true)
