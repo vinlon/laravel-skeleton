@@ -3,8 +3,8 @@
 /**
  * 金额转换：分转换为元.
  *
- * @param int   $fen
- * @param mixed $withThousandsSeparator
+ * @param int  $fen
+ * @param bool $withThousandsSeparator
  *
  * @return string
  */

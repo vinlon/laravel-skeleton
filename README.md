@@ -1,7 +1,7 @@
 # Laravel Skeleton 应用开发基础模板
 
 ## 更新日志
-
+v0.2.0  升级larvel版本到8.x，默认引入调试工具telescope, [查看telescope使用文档](https://learnku.com/docs/laravel/8.x/telescope/9424)
 v0.1.9: 自定义 make:model 和 make:enum 命令使用的 stub 模板，适量减少重复性的工作
 
 ## 功能
